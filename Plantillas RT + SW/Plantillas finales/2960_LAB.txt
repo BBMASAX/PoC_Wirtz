@@ -1,0 +1,240 @@
+WORKBBM#show running-config
+Building configuration...
+
+Current configuration : 5499 bytes
+!
+! Last configuration change at 16:47:28 UTC Sat Dec 2 2023 by workbbm
+! NVRAM config last updated at 22:17:38 UTC Sat Dec 2 2023 by workbbm
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec localtime show-timezone
+no service password-encryption
+!
+hostname WORKBBM
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$L.sU$EOa8gh0vyiCy4/rL241Yo1
+!
+username adri secret 5 $1$Syun$KXQ2WpTJjYY5GALMcrQ/P1
+username workbbm privilege 15 secret 5 $1$.pOX$mP/5D9shthiLXTdiuWBa5/
+!
+!
+aaa new-model
+!
+!
+aaa group server radius packetfence
+ server 192.168.20.30 auth-port 1812 acct-port 1813
+!
+aaa authentication login default local
+aaa authentication login local local
+aaa authentication dot1x default group packetfence
+aaa authorization network default group packetfence
+!
+!
+!
+aaa session-id common
+system mtu routing 1500
+!
+!
+ip domain-name workbbm.wirtz
+!
+!
+crypto pki trustpoint TP-self-signed-2804878848
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-2804878848
+ revocation-check none
+ rsakeypair TP-self-signed-2804878848
+!
+!
+crypto pki certificate chain TP-self-signed-2804878848
+ certificate self-signed 01
+  3082024C 308201B5 A0030201 02020101 300D0609 2A864886 F70D0101 04050030
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 32383034 38373838 3438301E 170D3933 30333031 30303032
+  30315A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D32 38303438
+  37383834 3830819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281
+  8100DE82 0D188671 11E26477 C52758FB 7B8F0A5B 28D7A8F7 E1AFE489 333AE2CC
+  D61A6B7F DBA7E00D 7AAB1F03 7D799D03 19A24216 E4FBC193 A01FD11C D569B867
+  C7C99A68 A9A5594A 8811D64B BD862C45 F4243EAA 42374269 BE980930 8D14FC99
+  819C93F7 25059521 7A3CECC6 6A3E8A2A 5642EA51 83F7094B 85C24D8B 54424EFA
+  5DFF0203 010001A3 74307230 0F060355 1D130101 FF040530 030101FF 301F0603
+  551D1104 18301682 14537769 7463682E 776F726B 62626D2E 77697274 7A301F06
+  03551D23 04183016 8014B80F 0631DE94 BBAD794A 68320C49 BF82D903 CE20301D
+  0603551D 0E041604 14B80F06 31DE94BB AD794A68 320C49BF 82D903CE 20300D06
+  092A8648 86F70D01 01040500 03818100 7A173AF1 0DBE4047 19051A50 7AB8F5C1
+  5C4A7EBB 226B515B 97992303 08F64A14 254FC349 890CBD62 0D019216 5AFA7517
+  2E0C4619 6F82EE2F 96F79D31 D0332542 85E94193 F2A88F82 9418B5E8 1703D458
+  31421040 3A4FA00D B8E7CC1E BB763EFE 491BB6FF 16EB24E5 307B087D 4215E6AC
+  C53E1210 D1B62F2A C77AA166 6EFE2DD3
+  quit
+dot1x system-auth-control
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+ip ssh version 2
+!
+!
+interface FastEthernet0/1
+ description PC_PROFESOR
+ switchport access vlan 5
+ switchport mode access
+ switchport port-security
+ switchport port-security violation restrict
+ switchport port-security mac-address c033.5e74.337c vlan access
+!
+interface FastEthernet0/2
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/3
+ switchport access vlan 5
+ switchport mode access
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+ switchport mode access
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer restart 10800
+ authentication timer reauthenticate 10800
+ mab
+ no snmp trap link-status
+ dot1x pae authenticator
+ dot1x timeout quiet-period 2
+ dot1x timeout tx-period 3
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface FastEthernet0/25
+!
+interface FastEthernet0/26
+!
+interface FastEthernet0/27
+!
+interface FastEthernet0/28
+!
+interface FastEthernet0/29
+!
+interface FastEthernet0/30
+!
+interface FastEthernet0/31
+!
+interface FastEthernet0/32
+!
+interface FastEthernet0/33
+!
+interface FastEthernet0/34
+!
+interface FastEthernet0/35
+!
+interface FastEthernet0/36
+!
+interface FastEthernet0/37
+!
+interface FastEthernet0/38
+!
+interface FastEthernet0/39
+!
+interface FastEthernet0/40
+!
+interface FastEthernet0/41
+!
+interface FastEthernet0/42
+!
+interface FastEthernet0/43
+!
+interface FastEthernet0/44
+!
+interface FastEthernet0/45
+!
+interface FastEthernet0/46
+!
+interface FastEthernet0/47
+!
+interface FastEthernet0/48
+!
+interface GigabitEthernet0/1
+ description TRUNK_TO_SOPHOS
+ switchport trunk allowed vlan 5,20,30
+ switchport mode trunk
+!
+interface GigabitEthernet0/2
+ description TRUNK_TO_SOPHOS
+ switchport trunk allowed vlan 5
+ switchport mode trunk
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan5
+ description MGMT
+ ip address 10.10.5.10 255.255.255.0
+!
+ip default-gateway 10.10.5.1
+ip http server
+ip http secure-server
+logging 192.168.0.19
+snmp-server community public RO
+snmp-server community private RW
+radius-server host 192.168.20.30 auth-port 1812 acct-port 1813 timeout 2 key abc123
+radius-server vsa send authentication
+!
+line con 0
+line vty 0 4
+ login authentication local
+ transport input ssh
+line vty 5 15
+!
+end
+
+WORKBBM#

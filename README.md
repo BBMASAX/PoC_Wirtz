@@ -4,14 +4,27 @@ Repositorio creado con el fin de llevar el control de versiones del proyecto de 
 <h3>PLANTILLAS EQUIPOS COMUNICACIONES</h3>
 
 <h3>Core</h3>
-
+V0 - Se genera plantilla para conseguir acceso entre equipos. Se usa de base para Packetracer
+V1.0 - Se incluye Router-on-a-Stick y acceso por SSH
+V2.0 - Se incluye banner
+V3.0 - Se incluye ACL
+FINAL - Con la última prueba, se genera plantilla final
 
 <h3>Distribution</h3>
-
+V0 - Se genera plantilla para conseguir acceso entre equipos. 
+V1.0 - Se configuran VLAN. Se da acceso entre troncales. Se incluye acceso por SSH
+V2.0 - Se incluye banner
+FINAL - Con la última prueba, se genera plantilla final
 
 <h3>Acceso</h3>
+V0 - Se genera plantilla para conseguir acceso entre equipos. 
+V1.0 - Se configuran VLAN. Se da acceso entre troncales. Se incluye acceso por SSH
+V2.0 - Se incluye banner
+V3.0 - Se prueban diferentes configuraciones exclusivas de puerto para integrar con Packetfence
+FINAL - Con la última prueba, se genera plantilla final
 
-
+<h3>Acceso</h3>
+FINAL - En base a plantilla acceso + documentación fabricante, se genera plantilla final.
 
 <h3>DOCKER</h3>
 

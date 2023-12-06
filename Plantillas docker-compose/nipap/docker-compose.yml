@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  nipap:
+    image: nipap/nipapd:1.3.0  # Especifica una versión específica aquí
+    ports:
+      - "1337:1337"
+    environment:
+      - NIPAP_CONFIG=/etc/nipap/nipap.conf
+      - PGSQL_HOST=db
+      - PGSQL_PORT=5432
+      - PGSQL_USER=nipap
+      - PGSQL_PASS=nipap
+      - PGSQL_DB=nipap
+    depends_on:
+      - db
+    volumes:
+      - ./nipap_config:/etc/nipap
+
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=nipap
+      - POSTGRES_USER=nipap
+      - POSTGRES_PASSWORD=nipap
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:

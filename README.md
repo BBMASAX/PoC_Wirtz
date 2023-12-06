@@ -1,32 +1,32 @@
 # PoC_Wirtz
 Repositorio creado con el fin de llevar el control de versiones del proyecto de FP
 
-<h1>PLANTILLAS EQUIPOS COMUNICACIONES</h1>
+<h3>PLANTILLAS EQUIPOS COMUNICACIONES</h3>
 
-<h2>Core</h2>
-
-
-<h2>Distribution</h2>
+<h3>Core</h3>
 
 
-<h2>Acceso</h2>
+<h3>Distribution</h3>
+
+
+<h3>Acceso</h3>
 
 
 
-<h1>DOCKER</h1>
+<h3>DOCKER</h3>
 
-<h2>Graylog</h2>
+<h3>Graylog</h3>
 Se deja puerto 9000 por defecto 
 
-<h2>NIPAP</h2>
+<h3>NIPAP</h3>
 Se deja puerto 1337 por defecto 
 
-<h2>Nextcloud</h2>
+<h3>Nextcloud</h3>
 Se indica puerto 8000 para levantar docker-compose en vez de puerto 80
 
-<h2>Redmine</h2>
+<h3>Redmine</h3>
 Se indica puerto 8080 para levantar docker-compose en vez de puerto 3000
 
-<h1>TOPOLOGIAS</h1>
+<h2>TOPOLOGIAS</h2>
 
 Se registran las topologías empleadas en este proyecto para tener un acceso más cómodo
